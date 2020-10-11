@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&family=Philosopher&display=swap');
+
+/* Header */
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('../images/background1a.jpg');
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logo,
+.title {
+  font-family: "Philosopher", cursive;
+  font-weight: bold;
+}
+
+.slogan{
+  font-family: 'Sansita Swashed', cursive;
+}
+
+.navbar{
+  background-color: #e89f71;
+  padding-top: 0;
+}
+
+.searchForm{
+  padding-top: 2em;
+}
+
+.signUpModal,
+.logInModal,
+.uploadListing {
+  padding-top: 0 !important;
+
+}
+
+.container,
+.container-fluid{
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+#welcomeSection{
+  background-color: #e89f71;
+
+}
+
+.signInUp{
+  background-color: transparent !important;
+  border: none !important;
+}
+.user-icon{
+  color: rgb(54, 51, 51);
+}
+
+form{
+  margin-top: 3m;
+  padding-top: 3em;
+  padding-bottom: 0;
+  margin: auto;
+  display: grid;
+  row-gap: 20px;
+  align-items: center;
+}
+
+.bookingSearchLabel{
+  color: white;
+  font-weight: inherit;
+}
+#promotions{
+  margin-bottom: 30px;
+}
+
+/* Modal */
+.modal-header,
+.btn{
+background-color: #e89f71!important;
+color: black!important;
+border:none!important;
+}
+
+.reserveRoom{
+  border: 1px solid;
+  border-radius: 8px;
+  padding-top: 0px;
+}
+
+/* Footer */
+.footer-top {
+  background-color:#e89f71;
+  vertical-align: middle;  
+  padding:50px;
+}
+
+.part2 ul{
+  margin:0;
+  padding: 0;
+  list-style: none;
+}
+.part2 ul li{
+  border-bottom: 1px solid black;
+  line-height: 40px;
+}
+.footer-top a {
+  color: black;
+  text-decoration: none;
+}
+
+.social-icons {
+  font-size: 1.5em;
+}
+
+.social-icons a:hover {
+  color: blue;
+}
+
+.footer-top h2{
+  color:black;
+}
+.footer-top p{
+  color: black;
+}
+
+.footer-bottom{
+  padding: 20px;
+  background-color: #e89f71;
+}
+
+.card-deck{
+  padding: 20px;
+}
