@@ -6,3 +6,9 @@ Student ID: 159696194
 Email: dttgnguyen@myseneca.ca
 
 Date: Oct 11, 2020
+
+Youtube: https://youtu.be/hQYcWTdrkAw
+
+Heroku App URL: https://evening-river-85102.herokuapp.com/
+
+
