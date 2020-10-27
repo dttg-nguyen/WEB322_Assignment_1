@@ -1,0 +1,103 @@
+<div class="modal fade" id="signUp">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header text-center">
+          <h4 class="modal-title text-center w-100">Create an account</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">&times;</button>
+        </div>
+
+        <div class="modal-body mx-1">
+          <form class="signUpModal" id="signUpForm" action="/dashboard" method="POST" enctype="application/x-www-form-urlencoded" novalidate>
+
+            <div class="form-group col-md-12">
+              <div class="mb-0">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" id="signUpFirstName" name="signUpFirstName" class="form-control validate" placeholder="First name"
+                    tabindex="1" required>
+                  <label data-error="wrong" data-success="right" class="d-none" for="signUpFirstName"></label>
+                  <div class="invalid-feedback">Please enter your first name</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <div class="mb-0">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" id="signUpLastName" name="signUpLastName" class="form-control validate" placeholder="Last name"
+                    tabindex="2" required>
+                  <label data-error="wrong" data-success="right" class="d-none" for="signUpLastName"></label>
+                  <div class="invalid-feedback">Please enter your last name</div>
+                </div>
+              </div>
+            </div>
+
+             <div class="form-group col-md-12">
+              <div class="mb-0">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                  </div>
+                  <input type="tel" id="signUpPhone" name="signUpPhone" class="form-control validate" placeholder="Phone number"
+                    autocomplete="tel-national" pattern="\d{3}[ -]?\d{3}[ -]?\d{4}" tabindex="3" required>
+                  <label data-error="wrong" data-success="right" class="signUpPhone d-none" for="signUpPhone"></label>
+                  <div class="invalid-feedback">Please enter a valid Canadian phone number</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <div class="mb-0">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                  </div>
+                  <input type="email" id="signUpEmail" name="signUpEmail" class="signUpEmail form-control validate" placeholder="Email address"
+                    autocomplete="email" tabindex="4" required>
+                  <label data-error="wrong" data-success="right" class="signUpEmail d-none" for="signUpEmail"></label>
+                  <div class="invalid-feedback">Please enter a valid email address</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12 mb-0">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                <input type="password" id="signUpPassword" name="signUpPassWord" class="form-control validate" placeholder="Create a Password"
+                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$" tabindex="5" required>
+                <label data-error="wrong" data-success="right" class="d-none" for="signUpPassword"></label>
+                <div class="invalid-feedback">Must be between 8 and 12 characters, and contain at least one letter, one number and one special character</div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12 mb-0">
+              <hr class="hr-dark">
+              <h5>Birthday</h5>
+              <p>To sign up, you need to be at least 18 years old. Nobody will see your birthday.</p>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputBirthday" class="d-none"></label>
+                  <input type="date" class="form-control" name="signUpBirthday" id="inputBirthday" max='2002-10-11' tabindex="6" required>
+                  <div class="invalid-feedback">Please enter your date of birth</div>
+                </div>
+              </div>
+
+              <hr class="hr-dark">
+              <p><small>By selecting Agree and submit below, I agree to airM&M’s <a href="#">Terms of Service</a>, <a
+                    href="#">Payments Terms of Service</a>, <a href="#">Privacy Policy</a>, and <a
+                    href="#">Nondiscrimination Policy</a>.</small></p>
+            </div>
+            <button class="btn btn-primary" type="submit" tabindex="7">Agree and submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

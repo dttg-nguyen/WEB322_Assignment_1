@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Room listing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- script -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script src="./js/roomListing.js"></script>
+</head>
+
+<body>
+  <!--Main Navigation-->
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar">
+
+    <!-- Navbar brand -->
+    <div class="col-md-4">
+      <a class="navbar-brand justify-content-between title" href="/">airM&M</a>
+    </div>
+
+    <!-- Burger -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topHeader"
+      aria-controls="topHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collapsible content -->
+    <div class="col-md-8">
+      <div class="collapse navbar-collapse " id="topHeader">
+        <ul class="navbar-nav smooth-scroll col-md-auto ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link title" href="/">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle title" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" href="#">Become a host</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownHost">
+                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
+                  Up</a>
+                <a class="dropdown-item title" data-toggle="modal" data-target="#uploadListing" href="#">Upload your
+                  listing</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle signInUp" type="button" id="dropdownUser"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user user-icon"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownUser">
+                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
+                  Up</a>
+                <a class="dropdown-item title" data-toggle="modal" data-target="#logIn" href="#">Log
+                  In</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Room Listing -->
+  <div class="container">
+    <h3 class="title">Explore room listing</h3>
+    <hr class="hr-black">
+
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="./images/room1.jpg" alt="Room 1">
+        <div class="card-body">
+          <h5 class="card-title">Entire house</h5>
+          <p class="card-text">Spacious modern house | Midtown</p>
+          <p class="card-text">$250 CAD/night</p>
+          <a href="/BnB" class="stretched-link"></a>
+        </div>
+
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./images/room2.jpg" alt="Room 2">
+        <div class="card-body">
+          <h5 class="card-title">Entire condominium</h5>
+          <p class="card-text">New 1 bedroom condo | Downtown</p>
+          <p class="card-text">$250 CAD/night</p>
+          <a href="/BnB" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./images/room3.jpg" alt="Room 3">
+        <div class="card-body">
+          <h5 class="card-title">Entire apartment</h5>
+          <p class="card-text">Luxury 2 bedroom apartment | Downtown</p>
+          <p class="card-text">$300 CAD/night</p>
+          <a href="/BnB" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="./images/room4.jpg" alt="Room 4">
+        <div class="card-body">
+          <h5 class="card-title">Private room</h5>
+          <p class="card-text">Nice and spacious | Downtown</p>
+          <p class="card-text">$200 CAD/night</p>
+          <a href="/BnB" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./images/room5.jpg" alt="Room 5">
+        <div class="card-body">
+          <h5 class="card-title">Private room</h5>
+          <p class="card-text">Quiet and private | Midtown</p>
+          <p class="card-text">$80 CAD/night</p>
+          <a href="/BnB" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./images/room6.jpg" alt="Room 6">
+        <div class="card-body">
+          <h5 class="card-title">Private room</h5>
+          <p class="card-text">Spacious and elegant | Downtown</p>
+          <p class="card-text">$200 CAD/night</p>
+          <a href="/BnB" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- pop up Upload host listing -->
+  {{> hostListingForm}}
+
+  <!-- pop up sign up -->
+  {{> signUpForm}}
+
+  <!-- pop up log in -->
+  {{> logInForm}}
+
+  <!-- Footer -->
+  {{> footer}}
+
+</body>
+
+</html>

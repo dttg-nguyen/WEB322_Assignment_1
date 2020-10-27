@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="./js/paymentConfirm.js"></script>
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar">
+
+        <!-- Navbar brand -->
+        <div class="col-md-4">
+            <a class="navbar-brand justify-content-between title" href="/">airM&M</a>
+        </div>
+
+        <!-- Burger -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topHeader"
+            aria-controls="topHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapsible content -->
+        <div class="col-md-8">
+            <div class="collapse navbar-collapse " id="topHeader">
+                <ul class="navbar-nav smooth-scroll col-md-auto ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link title" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle title" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" href="#">Become a host</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownHost">
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
+                                    Up</a>
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#uploadListing"
+                                    href="#">Upload your
+                                    listing</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle signInUp" type="button" id="dropdownUser"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user user-icon"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownUser">
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
+                                    Up</a>
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#logIn" href="#">Log
+                                    In</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Dashboard content -->
+    <div class="container">
+        <div class="dashboard">
+            <div class="dbWelcome" style="text-align: center;">
+                <h4>Welcome aboard - {{data.signUpFirstName}}</h4>
+                <hr class="hr-dark">
+                <div class="dbMessage">
+                    <p><b>You are now part of our community.</b><br>Find your own unique place for your next trip.
+                        Discover
+                        things to do. Or share your home.</p>
+                    <p>We are glad that you are here. Let's start our journey today.</p>
+                </div>
+            </div>
+
+            <hr class="hr-dark">
+            <div class="dbContent">
+                <h4>Find a home</h4>
+                <p>With over a million homes across more than 100 countries, you'll find a place for every occasion.</p>
+                <div class="gallery" id="gallery">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <img class="img-fluid rounded" src="./images/db1.jpg" alt="forest house">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <img class="img-fluid rounded" src="./images/db2.jpg" alt="modern living room">
+                            </div>
+
+                            <div class="mb-3">
+                                <img class="img-fluid rounded" src="./images/db3.jpg" alt="neighborhood">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" data-toggle="modal" data-target="#findPlace" style="font-size: large;"><b>Find a
+                        place</b></a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- pop up find a place -->
+    {{> findPlaceForm}}
+
+    <!-- pop up Upload host listing -->
+    {{> hostListingForm}}
+
+    <!-- pop up sign up -->
+    {{> signUpForm}}
+
+    <!-- pop up log in -->
+    {{> logInForm}}
+
+    <!-- Footer -->
+    {{> footer}}
+
+</body>
+
+</html>

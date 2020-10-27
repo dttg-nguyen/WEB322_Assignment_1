@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BnB details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="./js/detailBnB.js"></script>
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar">
+
+        <!-- Navbar brand -->
+        <div class="col-md-4">
+            <a class="navbar-brand justify-content-between title" href="/">airM&M</a>
+        </div>
+
+        <!-- Burger -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topHeader"
+            aria-controls="topHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapsible content -->
+        <div class="col-md-8">
+            <div class="collapse navbar-collapse " id="topHeader">
+                <ul class="navbar-nav smooth-scroll col-md-auto ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link title" href="#" data-toggle="modal" data-target="#findPlace">Find a place</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle title" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" href="#">Become a host</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownHost">
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
+                                    Up</a>
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#uploadListing"
+                                    href="#">Upload your
+                                    listing</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle signInUp" type="button" id="dropdownUser"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user user-icon"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownUser">
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
+                                    Up</a>
+                                <a class="dropdown-item title" data-toggle="modal" data-target="#logIn" href="#">Log
+                                    In</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Section 1 - title and images -->
+    <div class="container">
+        <div class="roomTitle">
+            <h3>Luxury two bedroom Apartment | Downtown</h3>
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="roomLocation"><u>Toronto, Ontario, Canada</u></p>
+                </div>
+                <div class="col-md-4 text-right">
+                    <a href="#"><i class="far fa-heart"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <hr class="hr-dark">
+        <div class="row ownerImage no-gutters">
+            <div class="col-md-6 pl-1">
+                <img class="img-fluid rounded" src="./images/room3-r.jpg" alt="room3">
+            </div>
+
+            <div class="col-md-6 pl-1 pt-2">
+                <div class="row no-gutters">
+                    <div class="col pr-1">
+                        <img class="img-fluid pb-1 rounded" src="./images/room-im4-r.jpg" alt="room3">
+                    </div>
+
+                    <div class="col">
+                        <img class="img-fluid pb-1 rounded" src="./images/room-im2-r.jpg" alt="room3">
+                    </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col pr-1">
+                        <img class="img-fluid rounded" src="./images/room-im5-r.jpg" alt="room3">
+                    </div>
+                    <div class="col">
+                        <img class="img-fluid rounded" src="./images/room-im3-r.jpg" alt="room3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2 - host and room information & payment -->
+    <div class="container pt-0 pb-0">
+        <div class="row">
+            <div class="col-md-8">
+                <h4 class="roomDesc">Entire Apartment hosted by Tristan</h4>
+                <p>4 guests - 2 bedrooms - 2 bathrooms</p>
+                <hr class="hr-dark">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="roomInfo">
+                    <div class="row">
+                        <div class="col-1 pr-0">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="col-11 pl-0">
+                            <p><b>Entire home</b></p>
+                            <p>You’ll have the apartment to yourself.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1 pr-0">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <div class="col-11 pl-0">
+                            <p><b>Self check-in</b></p>
+                            <p>You can check in with the doorman.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1 pr-0">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="col-11 pl-0">
+                            <p><b>Cancellation policy</b></p>
+                            <p>Cancel 1 day before arrival date and only get a refund of the cleaning fee.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="hr-dark">
+
+                <div class="roomDesc">
+                    <p><b>About the apartment</b></p>
+                    <p>Stylish, comfortable and equipped with everything you need to enjoy the perfect getaway to the
+                        city. Located in the beautiful, historical and amazing Fort York neighborhood. Walking distance
+                        from Porter Airport, ACC, CN Tower, the HarbourFront, Grocery store and more. Public
+                        transportation runs frequently and is steps from the building. Vibrant nightlife, amazing
+                        restaurants and bars/pubs just a short walk/taxi away. Perfect private patio to enjoy a coffee
+                        and gaze at the CN tower.</p>
+                    <p><b>Guest access</b></p>
+                    <p>24 hr concierge service. Salt water pool, sauna and hot tub. Fully equipped gym open until 12am.
+                        Outdoor shared terrace with 4 BBQ's, hot tub and lounge chairs and amazing views of the water
+                        and city lights. Underground parking is available. Vending machine on the main floor. Private
+                        spacious patio with side views of the CN Tower and frontal view of The Fort York National
+                        Historic Site.</p>
+                    <a href="#" data-toggle="modal" data-target="#logIn"><u>Contact Host</u></a>
+                </div>
+                <hr class="hr-dark">
+            </div>
+
+            <!-- Form payment -->
+            <div class="col-md-4">
+                <form class="reserveRoom pt-4" id="paymentForm" action="/payment" method="POST" novalidate>
+                    <h4 class="pricePerNight pl-3">$88/night</h4>
+                    <div class="form-group col-md-12">
+                        <label class="form-label" for="checkIn">CHECK IN</label>
+                        <input type="date" class="form-control" id="checkIn" required>
+                        <div class="invalid-feedback">Please pick a date</div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label class="form-label" for="checkOut">CHECK OUT</label>
+                        <input type="date" class="form-control" id="checkOut" required>
+                        <div class="invalid-feedback">Please pick a date</div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label class="form-label" for="inputLocation">GUESTS</label>
+                        <input type="number" class="form-control" id="inputLocation" min="1"
+                            placeholder="Number of guests..." required>
+                        <div class="invalid-feedback">Please enter a number</div>
+                    </div>
+                    <div class="form-group col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary submit-btn">Reserve and Pay</button>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="paymentAmount">
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="stayPrice">$88 x -- nights</p>
+                                </div>
+                                <div class="col-3">
+                                    <p>$---</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="cleaningFee">Cleaning fee</p>
+                                </div>
+                                <div class="col-3">
+                                    <p>$59</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="serviceFee">Service fee</p>
+                                </div>
+                                <div class="col-3">
+                                    <p>$95</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-9">
+                                <p><b>Total</b></p>
+                            </div>
+                            <div class="col-3">
+                                <p>$---</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3- Sleeping arrangement -->
+    <div class="container pt-0 pb-0">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Sleeping arrangements</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <i class="fas fa-bed"></i>
+                        <p><b>Bedroom 1</b></p>
+                        <p>1 queen bed</p>
+                    </div>
+
+                    <div class="col-6">
+                        <i class="fas fa-bed"></i>
+                        <p><b>Bedroom 1</b></p>
+                        <p>1 queen bed</p>
+                    </div>
+                </div>
+                <hr class="hr-dark">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4- Amenities -->
+    <div class="container pt-0 pb-0">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Amenities</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <span><i class="far fa-building"></i> Elevator</span>
+                    </div>
+                    <div class="col-6">
+                        <span><i class="fas fa-wifi"></i> Wifi</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <span><i class="fas fa-sink"></i> Kitchen</span>
+                    </div>
+                    <div class="col-6">
+                        <span><i class="fas fa-hot-tub"></i> Hot tub</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <span><i class="fas fa-dumbbell"></i> Gym</span>
+                    </div>
+                    <div class="col-6">
+                        <span><i class="fas fa-fire-alt"></i> Heater</span>
+                    </div>
+                </div>
+                <hr class="hr-dark">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5- Reviews -->
+    <div class="container pt-0">
+        <h4>Reviews</h4>
+        <div class="form-group">
+            <label class="form-label d-none" for="message"></label>
+            <textarea class="form-control" id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary col-md-2" data-toggle="modal" data-target="#logIn">Submit</button>
+    </div>
+
+    <!-- pop up find a place -->
+  {{> findPlaceForm}}
+    
+ <!-- pop up Upload host listing -->
+  {{> hostListingForm}}
+
+  <!-- pop up sign up -->
+  {{> signUpForm}}
+
+  <!-- pop up log in -->
+  {{> logInForm}}
+
+    <!-- Footer -->
+  {{> footer}}
+</body>
+
+</html>

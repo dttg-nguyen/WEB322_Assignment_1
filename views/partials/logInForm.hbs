@@ -1,0 +1,49 @@
+ <div class="modal fade" id="logIn">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header text-center">
+          <h4 class="modal-title text-center w-100">Welcome back</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close">&times;</button>
+        </div>
+
+        <div class="modal-body mx-1">
+          <form class="logInModal" id="logInForm" action="/" method="POST" novalidate>
+            <div class="form-group col-md-12">
+              <div class="mb-0">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                  </div>
+                  <input type="email" id="logInEmail" class="form-control validate" placeholder="Email address"
+                    autocomplete="email" tabindex="1" required>
+                  <label data-error="wrong" data-success="right" class="logInEmail d-none"></label>
+                  <div class="invalid-feedback">Please enter your email address</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12 mb-0">
+
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                <input type="password" id="logInPassword" class="form-control validate" placeholder="Password"
+                  tabindex="2" required>
+                <label data-error="wrong" data-success="right" class="logInPassword d-none"></label>
+                <div class="invalid-feedback">Please enter your password</div>
+              </div>
+
+              <p class="blue-text d-flex justify-content-end pt-2"><small><a href="#" class="blue-text ml-1">Forgot
+                    your
+                    password?</a></small></p>
+              <p class="d-flex justify-content-end"><small>Don't have an account? <a href="#" role="button"
+                    id="signUpBtn">Sign Up</a></small></p>
+            </div>
+            <button class="btn btn-primary" type="submit" tabindex="3">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
