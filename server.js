@@ -6,8 +6,15 @@ const bodyParser = require('body-parser');
 const exphbs = require("express-handlebars");
 
 var app = express();
+/*----------------------------------------------------------------------- */
+//let server know how to handle .hbs files
+app.engine(".hbs", exphbs({ extname: ".hbs" }));
+app.set("view engine", ".hbs");
 
-nodemailer
+//body parsers for registration form
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//nodemailer transporter
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -16,43 +23,32 @@ var transporter = nodemailer.createTransport({
   }
 });
 
-//let server know how to handle .hbs files
-app.engine(".hbs", exphbs({ extname: ".hbs" }));
-app.set("view engine", ".hbs");
-
-//body parsers
-app.use(bodyParser.urlencoded({ extended: true }));
-
-//make express look in the public directory for assets (css/js/img)
+//make express look into the public directory for assets (css/js/img)
 app.use(express.static("public"));
 
+/*--------------------------------------------------------------------------- */
 // setup 'route'
 app.get("/", function(req, res){
-  // res.sendFile(path.join(__dirname + "/views/index.html"));
   res.render("index", { layout: false });
 });
 
 app.post("/", function(req, res){
-  // res.sendFile(path.join(__dirname + "/views/index.html"));
   res.render("index", { layout: false });
 });
 
 app.get("/BnB", function(req, res){
-  // res.sendFile(path.join(__dirname + "/views/detailBnB.html"));
   res.render("detailBnB", { layout: false });
 });
 
 app.post("/rooms", function(req, res){
-  // res.sendFile(path.join(__dirname + "/views/roomListing.html"));
   res.render("roomListing", { layout: false });
 });
 
 app.post("/payment", function(req, res){
-  // res.sendFile(path.join(__dirname + "/views/paymentConfirm.html"));
   res.render("paymentConfirm", { layout: false });
 });
 
-//process registration: redirect to dashboard, send welcome email to the new user
+//process registration: redirect new user to dashboard, send welcome email to the new user
 app.post("/dashboard", function(req, res){
   const FORM_DATA = req.body;
 
@@ -67,7 +63,7 @@ app.post("/dashboard", function(req, res){
       FORM_DATA.signUpFirstName +
       " " +
       FORM_DATA.signUpLastName +
-      "</strong>,</p><p>Thank you for signing up. We are happy that you are here.<br>You have been added to our mailing list and will now be among the first to hear about new promotions and special offers.</p><p>Let's start the journey together.</p><p>AirM&M Team</p>",
+      "</strong>,</p><p>Thank you for signing up. We are happy that you are here.<br>You have been added to our mailing list and will now be among the first to hear about new promotions and special offers.</p><p>Let's start the journey together.</p><p>AirM&M's Team</p>",
   };
 
   transporter.sendMail(emailOptions, (error, info) => {

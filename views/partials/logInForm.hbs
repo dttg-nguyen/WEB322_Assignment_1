@@ -8,7 +8,7 @@
         </div>
 
         <div class="modal-body mx-1">
-          <form class="logInModal" id="logInForm" action="/" method="POST" novalidate>
+          <form class="logInModal" id="logInForm" action="/" method="POST" onsubmit="formValidCheck(event)" novalidate>
             <div class="form-group col-md-12">
               <div class="mb-0">
                 <div class="input-group">
@@ -39,7 +39,7 @@
                     your
                     password?</a></small></p>
               <p class="d-flex justify-content-end"><small>Don't have an account? <a href="#" role="button"
-                    id="signUpBtn">Sign Up</a></small></p>
+                    id="signUpBtn" onclick="signUpBtnOnClick()">Sign Up</a></small></p>
             </div>
             <button class="btn btn-primary" type="submit" tabindex="3">Submit</button>
           </form>

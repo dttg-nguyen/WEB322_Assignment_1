@@ -77,14 +77,14 @@
     <!-- Section 2 - host and room information & payment -->
     <div class="container pt-0 pb-0">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <h4 class="roomDesc">Entire Apartment hosted by Tristan</h4>
                 <p>4 guests - 2 bedrooms - 2 bathrooms</p>
                 <hr class="hr-dark">
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="roomInfo">
                     <div class="row">
                         <div class="col-1 pr-0">
@@ -119,15 +119,15 @@
 
                 <hr class="hr-dark">
 
-                <div class="roomDesc">
-                    <p><b>About the apartment</b></p>
+                <div class="roomDesc pb-2">
+                    <h5>About the apartment</h5>
                     <p>Stylish, comfortable and equipped with everything you need to enjoy the perfect getaway to the
                         city. Located in the beautiful, historical and amazing Fort York neighborhood. Walking distance
                         from Porter Airport, ACC, CN Tower, the HarbourFront, Grocery store and more. Public
                         transportation runs frequently and is steps from the building. Vibrant nightlife, amazing
                         restaurants and bars/pubs just a short walk/taxi away. Perfect private patio to enjoy a coffee
                         and gaze at the CN tower.</p>
-                    <p><b>Guest access</b></p>
+                    <h5>Guest access</h5>
                     <p>24 hr concierge service. Salt water pool, sauna and hot tub. Fully equipped gym open until 12am.
                         Outdoor shared terrace with 4 BBQ's, hot tub and lounge chairs and amazing views of the water
                         and city lights. Underground parking is available. Vending machine on the main floor. Private
@@ -139,9 +139,9 @@
             </div>
 
             <!-- Form payment -->
-            <div class="col-md-4">
-                <form class="reserveRoom pt-4" id="paymentForm" action="/payment" method="POST" novalidate>
-                    <h4 class="pricePerNight pl-3">$88/night</h4>
+            <div class="col-md-5 pb-4">
+                <form class="reserveRoom pt-4" id="paymentForm" action="/payment" method="POST" onsubmit="formValidCheck(event)" novalidate>
+                    <h4 class="pricePerNight pl-3">$88 per night</h4>
                     <div class="form-group col-md-12">
                         <label class="form-label" for="checkIn">CHECK IN</label>
                         <input type="date" class="form-control" id="checkIn" required>
@@ -167,36 +167,36 @@
                     <div class="form-group col-md-12">
                         <div class="paymentAmount">
                             <div class="row">
-                                <div class="col-9">
+                                <div class="col-8">
                                     <p class="stayPrice">$88 x -- nights</p>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4 displayMoney">
                                     <p>$---</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-9">
+                                <div class="col-8">
                                     <p class="cleaningFee">Cleaning fee</p>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4 displayMoney">
                                     <p>$59</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-9">
+                                <div class="col-8">
                                     <p class="serviceFee">Service fee</p>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4 displayMoney">
                                     <p>$95</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-9">
+                            <div class="col-8">
                                 <p><b>Total</b></p>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4 displayMoney">
                                 <p>$---</p>
                             </div>
                         </div>
@@ -207,10 +207,10 @@
     </div>
 
     <!-- Section 3- Sleeping arrangement -->
-    <div class="container pt-0 pb-0">
+    <div class="container pt-2 pb-0">
         <div class="row">
             <div class="col-md-8">
-                <h4>Sleeping arrangements</h4>
+                <h5>Sleeping arrangements</h5>
                 <div class="row">
                     <div class="col-6">
                         <i class="fas fa-bed"></i>
@@ -230,12 +230,12 @@
     </div>
 
     <!-- Section 4- Amenities -->
-    <div class="container pt-0 pb-0">
+    <div class="container pt-2 pb-0">
         <div class="row">
             <div class="col-md-8">
-                <h4>Amenities</h4>
+                <h5>Amenities</h5>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6 pb-2">
                         <span><i class="far fa-building"></i> Elevator</span>
                     </div>
                     <div class="col-6">
@@ -243,7 +243,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6 pb-2">
                         <span><i class="fas fa-sink"></i> Kitchen</span>
                     </div>
                     <div class="col-6">
@@ -251,7 +251,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6 pb-2">
                         <span><i class="fas fa-dumbbell"></i> Gym</span>
                     </div>
                     <div class="col-6">
@@ -264,8 +264,8 @@
     </div>
 
     <!-- Section 5- Reviews -->
-    <div class="container pt-0">
-        <h4>Reviews</h4>
+    <div class="container pt-2">
+        <h5>Reviews</h5>
         <div class="form-group">
             <label class="form-label d-none" for="message"></label>
             <textarea class="form-control" id="message" name="message" required></textarea>

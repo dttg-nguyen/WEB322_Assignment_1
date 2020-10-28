@@ -8,7 +8,7 @@
         </div>
 
         <div class="modal-body mx-1">
-          <form class="uploadListing" id="uploadRoomForm" action="/" method="POST" novalidate>
+          <form class="uploadListing" id="uploadRoomForm" action="/" method="POST" onsubmit="formValidCheck(event)" novalidate>
 
             <div class="form-group col-md-12 mb-0">
               <label data-error="wrong" data-success="right" class="hostAddress">Address</label>
