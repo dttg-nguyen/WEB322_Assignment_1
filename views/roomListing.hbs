@@ -28,60 +28,8 @@
 </head>
 
 <body>
-  <!--Main Navigation-->
-  <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar">
-
-    <!-- Navbar brand -->
-    <div class="col-md-4">
-      <a class="navbar-brand justify-content-between title" href="/">airM&M</a>
-    </div>
-
-    <!-- Burger -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topHeader"
-      aria-controls="topHeader" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Collapsible content -->
-    <div class="col-md-8">
-      <div class="collapse navbar-collapse " id="topHeader">
-        <ul class="navbar-nav smooth-scroll col-md-auto ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link title" href="/">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <div class="dropdown">
-              <a class="nav-link dropdown-toggle title" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" href="#">Become a host</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownHost">
-                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
-                  Up</a>
-                <a class="dropdown-item title" data-toggle="modal" data-target="#uploadListing" href="#">Upload your
-                  listing</a>
-              </div>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle signInUp" type="button" id="dropdownUser"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user user-icon"></i>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownUser">
-                <a class="dropdown-item title" data-toggle="modal" data-target="#signUp" href="#">Sign
-                  Up</a>
-                <a class="dropdown-item title" data-toggle="modal" data-target="#logIn" href="#">Log
-                  In</a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  </nav>
+  <!-- navigation bar-->
+  {{> navbar}}
 
   <!-- Room Listing -->
   <div class="container">
