@@ -1,4 +1,4 @@
-# WEB322_Assignment_1
+# WEB322_Assignment_2
 Name: Dong Thi Thuy Giang Nguyen
 
 Student ID: 159696194
