@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,69 +24,90 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-     <script src="./js/script.js"></script>
+    <script type="module" src="/js/dashboard.js"></script>
 </head>
 
-<body>
+<body onload="javascript:window.main()">
     <!-- navigation bar-->
     {{> navbar}}
-
+    <!-- page banner-->
+    <img src="/images/dashboard-banner.jpg" class="img-fluid" width="100%" alt="dashboard-banner">
     <!-- Dashboard content -->
     <div class="container">
         <div class="dashboard">
             <div class="dbWelcome" style="text-align: center;">
-                <h4>Welcome aboard - {{data.signUpFirstName}} {{data.signUpLastName}}</h4>
+                <h4 class="title">Welcome - {{user.firstName}} {{user.lastName}}</h4>
                 <hr class="hr-dark">
-                <div class="dbMessage">
-                    <p><b>You are now part of our community.</b><br>Find your own unique place for your next trip.
-                        Discover
-                        things to do. Or share your home.</p>
-                    <p>Let's start our journey today.</p>
-                </div>
             </div>
-
-            <hr class="hr-dark">
-            <div class="dbContent">
-                <div class="findAHome">
-                    <h4>Discover our options</h4>
-                    <p>With over a million homes across more than 100 countries, you'll find a place for every occasion.
-                    </p>
-
-                    <div class="gallery" id="gallery">
-                        <div class="row">
-                            <div class="col-6 mb-3">
-                                <img class="img-fluid rounded" src="./images/db1.jpg" alt="forest house">
-                            </div>
-
-                            <div class="col-6 mb-3">
-                                <div class="mb-3">
-                                    <img class="img-fluid rounded" src="./images/db2.jpg" alt="modern living room">
+            <div class="profile">
+                <div class="dbMessage">
+                    <h5 class="title">Profile</h5>
+                    <hr class="hr-dark">
+                    <p>First name: {{user.firstName}}</p>
+                    <p>Last name: {{user.lastName}}</p>
+                    <p>Email: {{user.email}}</p>
+                    <p>Phone number: {{user.phone}}</p>
+                    {{#unless user.isAdmin}}
+                    <hr class="hr-dark">
+                    <a href="#" class="title" data-toggle="modal" data-target="#findPlace"
+                        style="font-size: large;"><b>Find a place</b></a>
+                    <hr class="hr-dark">
+                    <h5 class="title">Your booking history</h5>
+                    <hr class="hr-dark">
+                    {{#unless user.bookings}}
+                    <p>You don't have any bookings yet.</p>
+                    {{else}}
+                    <div class="row">
+                        {{#each user.bookings}}
+                        <div class="col-sm6 col-lg-4 mb-3">
+                            <div class="card mb-3 h-100">
+                                <img class="card-img-top" height="200" src="/photos/{{this.roomPhoto}}" alt="This listing is no longer available">
+                            <div class="card-body">
+                                <h5 class="card-title title">{{this.roomTitle}}</h5>
+                                <p class="card-text">{{this.location}}</p>
+                                <p class="card-text">From {{this.checkinDateStr}} to
+                                    {{this.checkoutDateStr}}</p>
+                                <p class="card-text">Total: ${{this.totalPrice}}</p>
                                 </div>
-
-                                <div class="mb-3">
-                                    <img class="img-fluid rounded" src="./images/db3.jpg" alt="neighborhood">
-                                </div>
                             </div>
+                            <a href="/rooms/{{this.roomId}}" class="stretched-link"></a>
+                        </div>
+                        {{/each}}
+                    </div>
+                    {{/unless}}
+                    {{else}}
+                    <p>Role: Page admin</p>
+                    <hr class="hr-dark">
+
+                    <div class="row">
+                        <div class="col-sm-1" style="text-align: center;">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <a href="/rooms">
+                                <p class="title">View all room listings</p>
+                            </a>
                         </div>
                     </div>
-                    <a href="#" data-toggle="modal" data-target="#findPlace" style="font-size: large;"><b>Find a
-                            place</b></a>
+
+                    <div class="row">
+                        <div class="col-sm-1" style="text-align: center;">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <a href="/rooms/create">
+                                <p class="title">Create a new room</p>
+                            </a>
+                        </div>
+                    </div>
+                    {{/unless}}
                 </div>
             </div>
         </div>
     </div>
 
     <!-- pop up find a place -->
-    {{> findPlaceForm}}
-
-    <!-- pop up Upload host listing -->
-    {{> hostListingForm}}
-
-    <!-- pop up sign up -->
-    {{> signUpForm}}
-
-    <!-- pop up log in -->
-    {{> logInForm}}
+    {{> searchRooms}}
 
     <!-- Footer -->
     {{> footer}}

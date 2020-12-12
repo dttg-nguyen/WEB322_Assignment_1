@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Room listing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- script -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script type="module" src="/js/editRoom.js"></script>
+</head>
+
+<body onload="javascript:window.main()">
+  <!-- navigation bar-->
+  {{> navbar}}
+
+  <!--Room editor-->
+  <div class="container">
+    {{#if room}}
+      <h4 class="title">Edit room</h4>
+    {{else}}
+      <h4 class="title">Create a new room</h4>
+      {{#if errMsg}}
+        <p class="errorMsg">{{errMsg}}</p>
+      {{/if}}
+    {{/if}}
+    <form class="editRoom-form" id="editRoom" action="/rooms" method="POST" enctype="multipart/form-data"
+      onsubmit="formValidCheck(event)" novalidate>
+      <div class="form-group row">
+        <label for="roomHost" class="col-sm-3 col-form-label">Host name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="roomHost" name="hostName" {{#if room}} value="{{room.hostName}}"
+            {{/if}} required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomTitle" class="col-sm-3 col-form-label">Title</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="roomTitle" name="title" {{#if room}} value="{{room.title}}"
+            {{/if}} required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomPrice" class="col-sm-3 col-form-label">Price</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="roomPrice" name="price" {{#if room}} value="{{room.price}}"
+            {{/if}} required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomType" class="col-sm-3 col-form-label">Type of room</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="roomType" name="roomType"
+            placeholder="Entire house, Private room, etc." {{#if room}} value="{{room.roomType}}" {{/if}} required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomDesc" class="col-sm-3 col-form-label">Description</label>
+        <div class="col-sm-9">
+          <textarea class="form-control" id="roomDesc" name="desc"
+            rows="8" required>{{#if room}} {{room.desc}} {{/if}}</textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomBedroom" class="col-sm-3 col-form-label">Bedroom</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="roomBedroom" name="bedroom" {{#if room}}
+            value="{{room.bedroom}}" {{/if}} required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomBathroom" class="col-sm-3 col-form-label">Bathroom</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="roomBathroom" name="bathroom" {{#if room}}
+            value="{{room.bathroom}}" {{/if}} required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomLocation" class="col-sm-3 col-form-label">Location</label>
+        <div class="col-sm-9">
+          <select id="location" name="location" class="form-control">
+            <option {{#ifeq room.location 'Toronto'}} selected="selected" {{/ifeq}}>Toronto</option>
+            <option {{#ifeq room.location 'Vancouver'}} selected="selected" {{/ifeq}}>Vancouver</option>
+            <option {{#ifeq room.location 'Quebec'}} selected="selected" {{/ifeq}}>Quebec</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="roomPhotoName" class="col-sm-3 col-form-label">Upload photo</label>
+        <div class="col-sm-9">
+          <input type="file" class="form-control-file" id="roomPhotoName" name="photoName">
+        </div>
+      </div>
+
+      <div class="form-group d-none">
+        <input type="hidden" name="id" value="{{room._id}}">
+      </div>
+      <div class="form-group d-none">
+        <input type="hidden" name="originalPhoto" value="{{room.photoName}}">
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary submit-btn col-md-6">Save room</button>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-sm-1" style="text-align: center;">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="col-sm-11">
+        <a href="/rooms">
+          <a class="title" href="/rooms" style="font-size: large;">Back to room listing</a>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  {{> footer}}
+
+</body>
+
+</html>

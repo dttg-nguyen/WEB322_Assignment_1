@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sign up</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- script -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script type="module" src="/js/signUp.js"></script>
+</head>
+
+<body onload="javascript:window.main()">
+  <!-- navigation bar-->
+  {{> navbar}}
+
+  <!-- page banner -->
+  <img src="/images/signup-banner.jpg" class="signup-banner img-fluid" width="100%" alt="Responsive image">
+
+  <!---sign up form-->
+  <div class="container">
+    <h5 class="title col-md-6 mb-0">Sign up</h5>
+    <form class="signUpForm" id="signUpForm" action="/user/sign-up" method="POST"
+      enctype="application/x-www-form-urlencoded" onsubmit="formValidCheck(event)" novalidate>
+      {{#if errMsg}}
+      <h5 class="errorMsg">{{errMsg}}</h5>
+      {{/if}}
+      <div class="form-group col-md-6">
+        <div class="mb-0">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" id="signUpFirstName" name="signUpFirstName" class="form-control validate"
+              placeholder="First name" tabindex="1" {{#if data}} value="{{data.signUpFirstName}}" {{/if}} required>
+            <label data-error="wrong" data-success="right" class="d-none" for="signUpFirstName"></label>
+            <div class="invalid-feedback">Please enter your first name</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="mb-0">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" id="signUpLastName" name="signUpLastName" class="form-control validate"
+              placeholder="Last name" tabindex="2" {{#if data}} value="{{data.signUpLastName}}" {{/if}} required>
+            <label data-error="wrong" data-success="right" class="d-none" for="signUpLastName"></label>
+            <div class="invalid-feedback">Please enter your last name</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 mb-0">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+            </div>
+            <input type="tel" id="signUpPhone" name="signUpPhone" class="form-control validate"
+              placeholder="Phone number" autocomplete="tel-national" pattern="\d{3}[ -]?\d{3}[ -]?\d{4}" tabindex="3"
+              {{#if data}} value="{{data.signUpPhone}}" {{/if}} required>
+            <label data-error="wrong" data-success="right" class="signUpPhone d-none" for="signUpPhone"></label>
+            <div class="invalid-feedback">Please enter a valid Canadian phone number</div>
+          </div>
+        </div>
+        {{#if invalidPhone}}
+        <div class="col-md-6">
+          <div class="errorMsg">{{invalidPhone}}</div>
+        </div>
+        {{/if}}
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 mb-0">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="far fa-envelope"></i></span>
+            </div>
+            <input type="email" id="signUpEmail" name="signUpEmail" class="signUpEmail form-control validate"
+              placeholder="Email address" autocomplete="email" tabindex="4" {{#if data}} value="{{data.signUpEmail}}"
+              {{/if}} required>
+            <label data-error="wrong" data-success="right" class="signUpEmail d-none" for="signUpEmail"></label>
+            <div class="invalid-feedback">Please enter a valid email address</div>
+          </div>
+        </div>
+        {{#if invalidEmail}}
+        <div class="col-md-6">
+          <div class="errorMsg">{{invalidEmail}}</div>
+        </div>
+        {{/if}}
+      </div>
+
+      <div class="form-group mb-0">
+        <div class="col-md-6 mb-0">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            </div>
+            <input type="password" id="signUpPassword" name="signUpPassword" class="form-control validate"
+              placeholder="Create a Password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$"
+              tabindex="5" {{#if data}} value="{{data.signUpPassword}}" {{/if}} required>
+            <label data-error="wrong" data-success="right" class="d-none" for="signUpPassword"></label>
+            <div class="invalid-feedback">Must be between 8 and 12 characters, and contain at least one letter, one
+              number
+              and one special character</div>
+          </div>
+        </div>
+        {{#if invalidPassword}}
+        <div class="col-md-6">
+          <div class="errorMsg">{{invalidPassword}}</div>
+        </div>
+        {{/if}}
+      </div>
+
+      <div class="form-group col-md-6 mb-0">
+        <hr class="hr-dark">
+        <p><b>Birthday</b></p>
+        <p>To sign up, you need to be at least 18 years old.</p>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputBirthday" class="d-none"></label>
+            <input type="date" class="form-control" name="signUpBirthday" id="inputBirthday" max='2002-12-31'
+              tabindex="6" {{#if data}} value="{{data.signUpBirthday}}" {{/if}} required>
+            <div class="invalid-feedback">Please enter your date of birth</div>
+          </div>
+        </div>
+
+        <hr class="hr-dark">
+        <p><small>By selecting Agree and submit below, I agree to airM&M’s <a href="#">Terms of Service</a>, <a
+              href="#">Payments Terms of Service</a>, <a href="#">Privacy Policy</a>, and <a href="#">Nondiscrimination
+              Policy</a>.</small></p>
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        <button class="btn btn-primary btn-block" type="submit" tabindex="7">Agree and submit</button>
+      </div>
+    </form>
+  </div>
+
+  {{>footer}}
+</body>
+
+</html>

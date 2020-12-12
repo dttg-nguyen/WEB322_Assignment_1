@@ -2,7 +2,7 @@
     <div class="footer-top">
       <div class="container">
         <div class="row">
-          <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12" style="padding-left: 30px; padding-right:30px;">
+          <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
             <h3 class="title">About Us</h3>
             <div class="part1 d-flex justify-content-left align-items-left">
               <p>airM&M is currently available in 100+ countries, and our Community Standards promote safety and
@@ -12,14 +12,18 @@
               </p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" style="padding-left:30px; padding-right:30px;">
+          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" style="padding-left:30px; padding-right:30px; padding-bottom:10px;">
             <h3 class="title">Useful links</h3>
             <div class="part2 d-flex justify-content-left align-items-left">
               <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#signUp">Sign Up</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#logIn">Log In</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#uploadListing">Upload your listing</a></li>
+                {{#if user}}
+                <li><a href="/user/dashboard">Dashboard</a></li>
+                <li><a href="/user/logout">Log out</a></li>
+                {{else}}
+                <li><a href="/user/sign-up">Sign Up</a></li>
+                <li><a href="/user/login">Log In</a></li>
+                {{/if}}
               </ul>
             </div>
           </div>
@@ -45,8 +49,7 @@
     <div class="footer-bottom">
       <!-- <div class="container"> -->
       <div class="heading d-flex justify-content-center align-items-center">
-        <span class="text-muted">&#169; WEB322 Assignment 1 - 2020 - Images used in this assignment are
-          from https://unsplash.com/</span>
+        <span class="text-muted">&#169; WEB322 - Fall2020 - Dong Thi Thuy Giang Nguyen</span>
       </div>
     </div>
   </footer>

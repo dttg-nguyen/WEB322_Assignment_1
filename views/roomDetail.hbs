@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Room details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script type="module" src="/js/roomDetail.js"></script>
+</head>
+
+<body onload="javascript:window.main()">
+    <!-- navigation bar-->
+    {{> navbar}}
+
+    <!-- Section 1 - title and images -->
+    <div class="container">
+        {{#if saved}}
+        <div>
+            <div class="row">
+                <div class="col-sm-1" style="text-align: center;">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="col-sm-11">
+                    <a href="/rooms">
+                        <p class="title success-msg">Success! Room is saved successfully!</p>
+                    </a>
+                </div>
+            </div>
+            {{!-- <hr class="hr-dark"> --}}
+            <div class="row">
+                <div class="col-sm-1" style="text-align: center;">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="col-sm-11">
+                    <a href="/rooms">
+                        <a class="title" href="/rooms" style="font-size: large;">Back to room listing</a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="hr-dark">
+        {{/if}}
+        <div class="roomTitle">
+            <h3 class="title">{{room.title}}</h3>
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="roomLocation"><u>{{room.location}}, Canada</u></p>
+                </div>
+                <div class="col-md-4 text-right">
+                    <a href="#"><i class="far fa-heart"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="hr-dark">
+        {{!-- <div class="row ownerImage no-gutters"> --}}
+        <div class="room-photo">
+            <img class="img-fluid rounded" src="/photos/{{room.photoName}}" alt="room-photo">
+        </div>
+    </div>
+
+    <!-- Section 2 - host and room information & payment -->
+    <div class="container pt-0 pb-0">
+        <div class="row">
+            <div class="col-md-7">
+                <h4 class="roomTypeAndHost">{{room.roomType}} hosted by {{room.hostName}}</h4>
+                <p>{{room.bedroom}} {{#if room.multiBedrooms}} bedrooms {{else}} bedroom {{/if}}
+                    - {{room.bathroom}} {{#if room.multiBathrooms}} bathrooms {{else}} bathroom {{/if}}</p>
+                <hr class="hr-dark">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="roomInfo">
+                    <div class="row">
+                        <div class="col-1 pr-0">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="col-11 pl-0">
+                            <p><b>{{room.roomType}}</b></p>
+                            <p>Explore the city and enjoy your stay with us.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1 pr-0">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <div class="col-11 pl-0">
+                            <p><b>Self check-in</b></p>
+                            <p>You can check in with the doorman.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-1 pr-0">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="col-11 pl-0">
+                            <p><b>Cancellation policy</b></p>
+                            <p>Cancel 1 day before arrival date and only get a refund of the cleaning fee.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="hr-dark">
+
+                <div class="roomDesc pb-2">
+                    <h5>About the apartment</h5>
+                    <p>{{room.desc}}</p>
+                    {{!-- <h5>Guest access</h5>
+                    <p>24 hr concierge service. Salt water pool, sauna and hot tub. Fully equipped gym open until 12am.
+                        Outdoor shared terrace with 4 BBQ's, hot tub and lounge chairs and amazing views of the water
+                        and city lights. Underground parking is available. Vending machine on the main floor. Private
+                        spacious patio with side views of the CN Tower and frontal view of The Fort York National
+                        Historic Site.</p> --}}
+                </div>
+                <hr class="hr-dark">
+            </div>
+
+            <!-- Form payment -->
+            <div class="col-md-5 pb-4">
+                <form class="reserveRoom pt-4" id="bookingForm" action="/rooms/{{room._id}}/book" method="POST"
+                    onsubmit="formValidCheck(event)" novalidate>
+                    <h4 class="pricePerNight pl-3">${{room.price}} per night</h4>
+                    <div class="form-group col-md-12">
+                        <label class="form-label" for="checkIn">CHECK IN</label>
+                        <input type="date" class="form-control" id="checkIn" name="checkinDate" required>
+                        <div class="invalid-feedback">Please pick a date</div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label class="form-label" for="checkOut">CHECK OUT</label>
+                        <input type="date" class="form-control" id="checkOut" name="checkoutDate" required>
+                        <div class="invalid-feedback">Please pick a date</div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label class="form-label" for="inputLocation">GUESTS</label>
+                        <input type="number" class="form-control" id="inputLocation" min="1"
+                            placeholder="Number of guests..." name="guest" required>
+                        <div class="invalid-feedback">Please enter a number</div>
+                    </div>
+
+                    <div class="form-group col-md-12 text-center">
+                        {{#if user.isAdmin}}
+                        <button type="submit" class="btn btn-primary submit-btn" disabled>Reserve and Pay</button>
+                        {{else if user}}
+                        <button type="submit" class="btn btn-primary submit-btn">Reserve and Pay</button>
+                        {{else}}
+                        <a role="button" class="btn btn-primary" href="/user/login">You are not log in yet.</a>
+                        {{/if}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3- Sleeping arrangement -->
+    <div class="container pt-2 pb-0">
+        <div class="row">
+            <div class="col-md-8">
+                <h5>Staying arrangements</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <i class="fas fa-bed"></i>
+                        <p><b>Bedroom: {{room.bedroom}}</b></p>
+                    </div>
+
+                    <div class="col-6">
+                        <i class="fas fa-shower"></i>
+                        <p><b>Bathroom: {{room.bathroom}}</b></p>
+                    </div>
+                </div>
+                <hr class="hr-dark">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4- Amenities -->
+    <div class="container pt-2 pb-0">
+        <div class="row">
+            <div class="col-md-8">
+                <h5>Amenities</h5>
+                <div class="row">
+                    <div class="col-6 pb-2">
+                        <span><i class="far fa-building"></i> Elevator</span>
+                    </div>
+                    <div class="col-6">
+                        <span><i class="fas fa-wifi"></i> Wifi</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 pb-2">
+                        <span><i class="fas fa-sink"></i> Kitchen</span>
+                    </div>
+                    <div class="col-6">
+                        <span><i class="fas fa-hot-tub"></i> Hot tub</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 pb-2">
+                        <span><i class="fas fa-dumbbell"></i> Gym</span>
+                    </div>
+                    <div class="col-6">
+                        <span><i class="fas fa-fire-alt"></i> Heater</span>
+                    </div>
+                </div>
+                <hr class="hr-dark">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5- Reviews -->
+    <div class="container pt-2" id="reviewSection">
+        <h5>Reviews</h5>
+        {{#if canReview}}
+        <form class="reviewForm pt-4" id="reviewForm" action="/rooms/{{room._id}}/reviews" method="POST"
+            onsubmit="formValidCheck(event)" novalidate>
+            <div class="form-group">
+                <label class="form-label d-none" for="message"></label>
+                <textarea class="form-control" id="message" name="message" placeholder="Please leave a review..."></textarea>
+            </div>
+            <input type="hidden" name="userId" value="{{user.id}}" />
+            <input type="hidden" name="userFirstName" value="{{user.firstName}}" />
+            <input type="hidden" name="userLastName" value="{{user.lastName}}" />
+            <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+        </form>
+        <hr class="hr-dark">
+        {{/if}}
+        {{#if room.reviews}}
+        {{#each room.reviews}}
+        <div class="pt-3 pb-3">
+            <p class="review-user"><i class="fas fa-user-circle"></i><b> {{this.userFirstName}}
+                    {{this.userLastName}}</b></p>
+            <p><small>Review date: {{this.reviewDateStr}}</small></p>
+            <p>{{this.message}}</p>
+        </div>
+
+        {{/each}}
+        {{else}}
+        <p>There are no reviews for this room yet.</p>
+        {{/if}}
+
+    </div>
+
+    <!-- Footer -->
+    {{> footer}}
+</body>
+
+</html>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,7 +24,6 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-   <script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -33,6 +32,54 @@
 
   <!-- Room Listing -->
   <div class="container">
+    <h3 class="title">Explore room listing</h3>
+    <hr class="hr-black">
+    {{#if user.isAdmin}}
+    <div class="row">
+      <div class="col-sm-1" style="text-align: center;">
+        <i class="fas fa-edit"></i>
+      </div>
+      <div class="col-sm-11">
+        <a href="/rooms/create">
+          <p style="font-size: large;"><b>Create a new room</b></p>
+        </a>
+      </div>
+    </div>
+    <hr class="hr-black">
+    {{/if}}
+    {{#if hasRooms}}
+    <div class="row">
+      {{#each rooms}}
+      <div class="col-sm6 col-lg-4 mb-3">
+        <div class="card mb-3 h-100">
+          <img class="card-img-top img-fluid" style="max-height: 195px;" src="/photos/{{this.photoName}}" alt="room-photo">
+        <div class="card-body">
+          <h5 class="card-title title">{{this.title}}</h5>
+          <p class="card-text">{{this.roomType}}</p>
+          <p class="card-text"><span class="badge badge-info">${{this.price}}</span></p>
+          {{#if ../user.isAdmin}}
+          <a class="pb-5" href="/rooms/{{this._id}}/edit">Edit</a> <br>
+          <a href="/rooms/{{this._id}}">View room details</a>
+          <form id="deleteRoom" class="pt-3 pb-2" action="/rooms/{{this._id}}/delete" method="POST">
+            <div class="form-group d-none">
+              <input type="hidden" id="photo" name="photoName" value="{{this.photoName}}">
+            </div>
+            <button type="submit" class="deleteBtn btn btn-primary">Delete</button>
+          </form>
+          {{else}}
+          <a href="/rooms/{{this._id}}" class="stretched-link"></a>
+          {{/if}}
+        </div>
+      </div>
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <p>There are no rooms to display.</p>
+    {{/if}}
+  </div>
+
+  {{!-- <div class="container">
     <h3 class="title">Explore room listing</h3>
     <hr class="hr-black">
 
@@ -97,17 +144,17 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 
- <!-- pop up Upload host listing -->
+  {{!-- <!-- pop up Upload host listing -->
   {{> hostListingForm}}
 
   <!-- pop up sign up -->
   {{> signUpForm}}
 
   <!-- pop up log in -->
-  {{> logInForm}}
+  {{> logInForm}} --}}
 
   <!-- Footer -->
   {{> footer}}

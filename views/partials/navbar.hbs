@@ -17,7 +17,25 @@
             <a class="nav-link title" href="/">Home</a>
           </li>
 
-          <li class="nav-item">
+          {{#if user}}
+          <li class="nav-item active">
+            <a class="nav-link title" href="/user/dashboard">Dashboard</a>   
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link title" href="/user/logout">Log Out</a>   
+          </li>
+
+          {{else}}
+          <li class="nav-item active">  
+            {{!-- <a class="nav-link title" data-toggle="modal" data-target="#signUp" href="#">Sign Up</a> --}}
+            <a class="nav-link title" href="/user/sign-up">Sign Up</a>
+          </li>
+          <li class="nav-item active">           
+            {{!-- <a class="nav-link title" data-toggle="modal" data-target="#logIn" href="#">Log In</a>    --}}
+            <a class="nav-link title" href="/user/login">Log In</a>               
+          </li>
+          {{/if}}
+          {{!-- <li class="nav-item">
             <div class="dropdown">
               <a class="nav-link dropdown-toggle title" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" href="#">Become a host</a>
@@ -27,9 +45,9 @@
                   listing</a>
               </div>
             </div>
-          </li>
+          </li> --}}
 
-          <li class="nav-item">
+          {{!-- <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle signInUp" type="button" id="dropdownUser"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +59,7 @@
                 <a class="dropdown-item title" data-toggle="modal" data-target="#logIn" href="#">Log In</a>
               </div>
             </div>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>

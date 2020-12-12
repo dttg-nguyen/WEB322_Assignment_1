@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&family=Philosopher&display=swap');
+
+/* Header */
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('../images/background1a.jpg');
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logo,
+.title {
+  font-family: 'Philosopher', cursive;
+  font-weight: bold;
+}
+
+.slogan {
+  font-family: 'Sansita Swashed', cursive;
+}
+
+.navbar {
+  background-color: #e89f71;
+  padding-top: 0;
+}
+
+.searchForm {
+  padding-top: 2em;
+}
+
+/* .signUpModal,
+.logInModal,
+.uploadListing {
+  padding-top: 0 !important;
+} */
+
+.container,
+.container-fluid {
+  padding-top: 2%;
+  padding-bottom: 4%;
+}
+
+#welcomeSection {
+  background-color: #e89f71;
+}
+#promotions {
+  margin-bottom: 30px;
+}
+
+.signInUp {
+  background-color: transparent !important;
+  border: none !important;
+}
+.user-icon {
+  color: rgb(54, 51, 51);
+}
+.errorMsg {
+  color: red;
+  font-size: small;
+}
+
+/*form*/
+form {
+  margin-top: 3em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: auto;
+  display: grid;
+  row-gap: 15px;
+  /* align-items: center; */
+}
+
+.editRoom-form{
+  padding-bottom: 50px;
+}
+
+
+.bookingSearchLabel {
+  color: white;
+  font-weight: inherit;
+}
+
+/* Modal */
+.modal-header,
+.btn {
+  background-color: #e89f71 !important;
+  color: black !important;
+  border: none !important;
+}
+
+/*admin view*/
+.deleteBtn {
+  background-color: #cad3da !important;
+  color: rgb(189, 18, 18) !important;
+  /* font-weight: bold !important; */
+  border: none !important;
+}
+
+.success-msg{
+  color: rgb(43, 197, 12);
+  font-weight: bold !important;
+  font-size: 18px;
+}
+
+/*price badge*/
+.badge.badge-info {
+  background-color: #c4572c;
+  width: 60px;
+  height: 22px;
+  font-size: 14px;
+  /* text-align: right; */
+}
+
+.reserveRoom {
+  border: 1px solid;
+  border-radius: 8px;
+  padding-top: 0px;
+}
+
+/* Display money amount */
+.displayMoney {
+  text-align: right;
+}
+
+/* Footer */
+footer {
+  /* clear:both; */
+  position: relative;
+  /* bottom: 0; */
+  width: 100%;
+  /* height:200px;
+  margin-top: -200px;
+  bottom:0; */
+  background-color: #e89f71;
+}
+
+.footer-top {
+  vertical-align: middle;
+  padding: 20px;
+}
+
+.part2 ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.part2 ul li {
+  border-bottom: 1px solid black;
+  line-height: 40px;
+}
+.footer-top a {
+  color: black;
+  text-decoration: none;
+}
+
+.social-icons {
+  font-size: 1.5em;
+}
+
+.social-icons a:hover {
+  color: blue;
+}
+
+.footer-top h2 {
+  color: black;
+}
+.footer-top p {
+  color: black;
+}
+
+.footer-bottom {
+  padding: 20px;
+}
+
+.card-deck{
+  padding: 20px;
+}
+
+/* .card-text {
+  font-size: 85%;
+}*/
+
+ /* .card-img-top {
+  /*height: 11vw;*/
+  /*object-fit: cover;
+}   */
+/* Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) {
+  .card-img-top {
+    height: 19vw;
+  }
+  .card-deck .card {
+    min-width: 50.1%; /* 1 Column */
+    /* margin-bottom: 12px;
+  }
+}  */
+/* Medium devices (tablets, 768px and up) */
+/* @media (min-width: 768px) {
+  .card-img-top {
+    height: 16vw;
+  }
+  .card-deck .card {
+    min-width: 33.4%; /* 2 Columns */
+  /* }
+}  */
+/* Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) {
+  .card-img-top {
+    height: 12vw;
+  }
+   /* 3 Columns */
+  /* .card-deck .card {
+    min-width: 25.1%;
+  }
+} */ 
+/* Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) {
+  .card-img-top {
+    height: 13vw;
+  }
+  /* 4 Columns */
+  /* .card-deck .card {
+    min-width: 20.1%; 
+  } */
+/* }  */
