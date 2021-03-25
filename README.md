@@ -1,8 +1,6 @@
 # WEB322_Final assignment submission
 Name: Dong Thi Thuy Giang Nguyen
 
-Student ID: 159696194
-
 Email: dttgnguyen@myseneca.ca
 
 Date: Dec 11, 2020
